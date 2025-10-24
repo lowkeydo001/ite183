@@ -6,6 +6,7 @@ from api.views import employee_class_base_view
 from api.views import mixins_employee
 from api.views import mixins_student  # I-import ang imong mixins_student module
 from api.views import generics_employee
+from api.views import generics_student
 
 
 
@@ -30,7 +31,9 @@ urlpatterns = [
 
     path('generics_employee/', generics_employee.Employees.as_view()),
     path('generics-employee-detail/<int:pk>/', generics_employee.EmployeeDetail.as_view()),
-
+     
+    path('generics-students/', generics_student.Students.as_view()), 
+    path('generics-students/<int:pk>/', generics_student.StudentDetail.as_view()), 
 
 ]
     
