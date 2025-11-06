@@ -10,6 +10,7 @@ from api.views import generics_student
 from rest_framework.routers import DefaultRouter
 import api.views.employee_viewsets as viewsets_view
 import api.views.student_viewsets as student_viewsets
+from api.views import blogs_view
 
 router = DefaultRouter()
 router.register('viewsets-employees', viewsets_view.Employees, basename='viewsets-employees')
@@ -44,6 +45,12 @@ urlpatterns = [
      
     path('generics-students/', generics_student.Students.as_view()), 
     path('generics-students/<int:pk>/', generics_student.StudentDetail.as_view()), 
+
+    path('blogs/', blogs_view.BlogsView.as_view()),
+    path('comments/', blogs_view.CommentsView.as_view()),
+
+    path('blogs/<int:pk>', blogs_view.BlogDetailView.as_view()),
+    path('comments/<int:pk>', blogs_view.CommentDetailView.as_view()),
 
     path('', include(router.urls))
 
